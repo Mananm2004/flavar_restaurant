@@ -25,7 +25,7 @@ export default function Home() {
         const data = await response.json();
         setRestaurant(data.restaurant);
         localStorage.setItem("restaurantName", JSON.stringify(data.restaurant.name));
-        localStorage.setItem("rest_id", JSON.stringify(data.restaurant.rest_id));
+        localStorage.setItem("rest_id",rest_id);
 
 
       } catch (err) {
@@ -89,7 +89,8 @@ export default function Home() {
 
       {/* Options Section */}
       <div className="px-6 py-4 flex flex-col gap-4">
-        <Link href="/order" legacyBehavior>
+        <div > 
+        {/* // changed the link tag to div since order functionality is not added */}
           <a className="flex items-center gap-4 p-4 bg-white rounded-xl border border-orange-300 shadow-md">
             <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
               <ShoppingBag className="w-6 h-6 text-orange-500" />
@@ -99,7 +100,7 @@ export default function Home() {
               <p className="text-sm text-gray-500">Order food online for delivery</p>
             </div>
           </a>
-        </Link>
+        </div>
 
         <Link href={`/menu/${rest_id}`} legacyBehavior>
           <a className="flex items-center gap-4 p-4 bg-white rounded-xl border border-orange-300 shadow-md">
